@@ -1,0 +1,9 @@
+FROM python:3
+WORKDIR /srv/app/
+COPY web.py .
+COPY ./conf/web.conf ./conf/
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+EXPOSE 80
+EXPOSE 5000
+CMD ["python","./web.py"]
